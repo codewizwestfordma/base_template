@@ -1,16 +1,64 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
     <head><title>Home Page</title>
-        <link th:href="@{/css/style.css}" rel="stylesheet" />
+
         <link rel="stylesheet" type="text/css"
               href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+
+        <link href="css/bootstrap-theme.css" rel="stylesheet" />
+        <script type="text/javascript"
+                src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="javascript/bootstrap.min.js"></script>
+        <link th:href="@{/css/style.css}" rel="stylesheet" />
     </head>
     <body>
-        <div>
-            <h1>Hello Code Wizzes!</h1>
-            <img src="/images/code-wiz.png" height="50" width="150">
-            <p> This is our barebones Java web application project that you will get to fork and build your own awesome projects!!<span th:text="${appName}">Our App</span></p>
-            <div id="demo"></div>
-            <script src="/javascript/myscript.js"></script>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Add a student</a>
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Add a student</a>
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Add a student</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Change this</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <div class="starter-template">
+                <img src="/images/code-wiz.png" height="50" width="150">
+                <h1>Hello Code Wizzes!</h1>
+                <p> This is our barebones Java web application project that you will get to fork and build your own awesome projects!!<span th:text="${appName}">Our App</span></p>
+
+                <!-- This is how you grab data from the back end -->
+                <p>
+                    <strong> <span th:text=" ${message}"></span></strong>
+                </p>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Wiz Bucks Earned</th>
+                    </tr>
+                    <tr th:each="student : ${studentslist}">
+                        <td th:text="${student.name}"></td>
+                        <td th:text="${student.wizbucks}"></td>
+                    </tr>
+                </table>
+
+            </div>
+
         </div>
+        <!-- /.container -->
     </body>
 </html>
